@@ -3,8 +3,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'Fifty random characters.'
 DEBUG = True
-ALLOWED_HOSTS = ['*']
-INTERNAL_IPS = ['127.0.0.1',]
+ALLOWED_HOSTS = []
+INTERNAL_IPS = ['127.0.0.1','147.230.155.90']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -64,8 +64,9 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-            # "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            # "hosts": [('127.0.0.1', 6379)],
+            # "hosts": [('147.230.155.90', 6379)],
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
         # "ROUTING": "chat.routing.channel_routing",
     },
@@ -122,10 +123,13 @@ CSRF_COOKIE_NAME = "csrftoken"
 # HOST_URL = 'https://pwa-3609.rostiapp.cz'
 HOST_URL = 'http://djangochat-4280.rostiapp.cz'
 if DEBUG:
-    HOST_URL = 'http://localhost:3000'
+    HOST_URL = 'http://147.230.155.90:8000'
+    # HOST_URL = 'http://localhost:3000'
     # HOST_URL = 'http://localhost:8000'
 
 CORS_ORIGIN_WHITELIST = (
+    '147.230.155.90:3000',
+    '147.230.155.90:8000',
     'localhost:3000',
     'localhost:8000',
     'localhost:8080',
