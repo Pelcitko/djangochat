@@ -24,7 +24,7 @@ class Sidepanel extends React.Component {
           component.props.username,
           component.props.token
         );
-        return;
+        // return;
       } else {
         console.log("waiting for authentication details...");
         component.waitForAuthDetails();
@@ -63,7 +63,7 @@ class Sidepanel extends React.Component {
       return (
         <Contact
           key={c.id}
-          name={`${c.name}`}
+          name={`${c.participants.splice(0,1)}`}
           picURL="https://loremflickr.com/320/320/dog"
           status="busy"
           chatURL={`/${c.id}`}
