@@ -67,6 +67,7 @@ class Sidepanel extends React.Component {
           picURL="https://loremflickr.com/320/320/dog"
           status="busy"
           chatURL={`/${c.id}`}
+          messages={`/${c.messages[0]}`}
         />
       );
     });
