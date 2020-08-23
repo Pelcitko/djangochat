@@ -73,11 +73,11 @@ body {
   #frame #sidepanel #profile .wrap {
     height: 250px;
     line-height: 65px;
-    overflow: scroll;
+    overflow: auto; /* scroll */
     -moz-transition: 0.3s height ease;
     -o-transition: 0.3s height ease;
     -webkit-transition: 0.3s height ease;
-    transition: 0.3s height ease;
+    transition: 0.4s height ease;
   }
   @media screen and (max-width: 735px) {
     #frame #sidepanel #profile .wrap {
@@ -95,7 +95,7 @@ body {
     -moz-transition: 0.3s border ease;
     -o-transition: 0.3s border ease;
     -webkit-transition: 0.3s border ease;
-    transition: 0.3s border ease;
+    transition: 0.4s border ease;
   }
   @media screen and (max-width: 735px) {
     #frame #sidepanel #profile .wrap img {
@@ -127,7 +127,7 @@ body {
   #frame #sidepanel #profile .wrap i.expand-button {
     float: right;
     margin-top: 23px;
-    font-size: 0.8em;
+    font-size: 0.9em;
     cursor: pointer;
     color: #435f7a;
   }
@@ -419,6 +419,7 @@ body {
   }
   #frame #sidepanel #contacts ul li.contact .wrap .meta .name {
     font-weight: 700;
+    font-size: larger;/**/
   }
   #frame #sidepanel #contacts ul li.contact .wrap .meta .preview {
     margin: 5px 0 0 0;
