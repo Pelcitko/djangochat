@@ -618,8 +618,9 @@ body {
     font-family: "proxima-nova",  "Source Sans Pro", sans-serif;
     float: left;
     border: none;
-    width: calc(100% - 90px);
+    width: calc(100% - 64px); /* -90*/
     padding: 11px 32px 10px 8px;
+    margin: -2px;
     font-size: 1.8em;
     color: #32465a;
   }
@@ -651,10 +652,10 @@ body {
     opacity: 1;
   }
   #frame .content .message-input .wrap button {
-    float: right;
+    float: left;
     border: none;
-    width: 50px;
-    padding: 12px 0;
+    width: 65px;
+    padding: 13px 0;
     cursor: pointer;
     background: #32465a;
     color: #f5f5f5;
