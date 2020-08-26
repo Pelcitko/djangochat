@@ -19,7 +19,7 @@ export const authSuccess = (username, token) => {
 };
 
 export const authFail = error => {
-  DEBUG && console.log("Authenticatin failded");
+  DEBUG && console.log(error);
   return {
     type: actionTypes.AUTH_FAIL,
     error: error
@@ -61,6 +61,7 @@ export const authLogin = (username, password) => {
         dispatch(checkAuthTimeout(3600));
       })
       .catch(err => {
+        DEBUG && console.log(err);
         dispatch(authFail(err));
       });
   };
@@ -86,6 +87,7 @@ export const authSignup = (username, email, password1, password2) => {
         dispatch(checkAuthTimeout(3600));
       })
       .catch(err => {
+        DEBUG && console.log(err);
         dispatch(authFail(err));
       });
   };
