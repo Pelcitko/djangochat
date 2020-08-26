@@ -1,4 +1,4 @@
-import { SOCKET_URL } from "./settings";
+import { SOCKET_URL, DEBUG } from "./settings";
 
 class WebSocketService {
   static instance = null;
@@ -19,16 +19,17 @@ class WebSocketService {
     const path = `${SOCKET_URL}/ws/chat/${chatUrl}/`;
     this.socketRef = new WebSocket(path);
     this.socketRef.onopen = () => {
-      console.log("WebSocket open");
+      DEBUG && console.log("WebSocket open");
     };
     this.socketRef.onmessage = e => {
+      DEBUG && console.log(e.data);
       this.socketNewMessage(e.data);
     };
     this.socketRef.onerror = e => {
-      console.log(e.message);
+      DEBUG && console.log(e.message);
     };
     this.socketRef.onclose = () => {
-      console.log("WebSocket closed let's reopen");
+      DEBUG && console.log("WebSocket closed let's reopen");
       this.connect();
     };
   }

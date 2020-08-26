@@ -1,0 +1,27 @@
+info:
+  description: ''
+  title: ''
+  version: ''
+openapi: 3.0.0
+paths:
+  /chat/:
+    get:
+      operationId: chat_list
+      tags:
+      - chat
+  /chat/{id}:
+    get:
+      operationId: chat_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this chat.
+          title: !!python/tuple
+          - ID
+          type: integer
+      tags:
+      - chat
+servers:
+- url: ''

@@ -4,7 +4,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECRET_KEY = 'Fifty random characters.'
 DEBUG = True
 ALLOWED_HOSTS = []
-INTERNAL_IPS = ['127.0.0.1','147.230.155.90']
+INTERNAL_IPS = [
+    '127.0.0.1',
+    '147.230.155.90',   # na síti
+    '147.230.229.130',  # na wifi
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,15 +65,18 @@ ASGI_APPLICATION = 'djangochat.routing.application'
 # ASGI_APPLICATION = 'djangochat.asgi.application'
 
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            # "hosts": [('127.0.0.1', 6379)],
-            # "hosts": [('147.230.155.90', 6379)],
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
-        },
-        # "ROUTING": "chat.routing.channel_routing",
+    "default": { # without redis
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
     },
+    # 'default': {
+    #     'BACKEND': 'channels_redis.core.RedisChannelLayer',
+    #     'CONFIG': {
+    #         # "hosts": [('127.0.0.1', 6379)],
+    #         # "hosts": [('147.230.155.90', 6379)],
+    #         "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+    #     },
+    #     # "ROUTING": "chat.routing.channel_routing",
+    # },
 }
 
 DATABASES = {
@@ -104,15 +111,23 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # authentication settings
 
 SITE_ID = 1
+
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-    ),
+    ],
+    # 'DEFAULT_RENDERER_CLASSES': [
+    #     'rest_framework.renderers.JSONRenderer',
+    #     'rest_framework.renderers.BrowsableAPIRenderer',
+    # ],
+    # 'DEFAULT_PARSER_CLASSES': [
+    #     'rest_framework.parsers.JSONParser',
+    # ]
 }
 
 ACCOUNT_EMAIL_REQUIRED = False

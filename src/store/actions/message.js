@@ -1,8 +1,9 @@
 import axios from "axios";
 import * as actionTypes from "./actionTypes";
-import { HOST_URL } from "../../settings";
+import { HOST_URL, DEBUG } from "../../settings";
 
 export const addMessage = message => {
+  if (DEBUG) {console.log(message)}
   return {
     type: actionTypes.ADD_MESSAGE,
     message: message
@@ -10,6 +11,7 @@ export const addMessage = message => {
 };
 
 export const setMessages = messages => {
+  if (DEBUG) {console.log(messages)}
   return {
     type: actionTypes.SET_MESSAGES,
     messages: messages
@@ -17,6 +19,7 @@ export const setMessages = messages => {
 };
 
 const getUserChatsSuccess = chats => {
+  if (DEBUG) {console.log(chats)}
   return {
     type: actionTypes.GET_CHATS_SUCCESS,
     chats: chats

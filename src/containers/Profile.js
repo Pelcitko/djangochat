@@ -12,7 +12,8 @@ class Profile extends React.Component {
       <div className="contact-profile">
         {this.props.username !== null ? (
           <Hoc>
-            <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+            {/*<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />*/}
+            <img src={`https://loremflickr.com/320/320/dog,cat?random=${this.props.username}`} alt="" />
             <p>{this.props.username}</p>
             <div className="social-media">
               <i className="fa fa-facebook" aria-hidden="true" />

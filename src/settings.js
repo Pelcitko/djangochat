@@ -8,4 +8,4 @@ if (DEBUG) {
   SOCKET_URL = "ws://147.230.155.90:8000";
 }
 
-export { HOST_URL, SOCKET_URL };
+export { HOST_URL, SOCKET_URL, DEBUG };

@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as actionTypes from "./actionTypes";
-import { HOST_URL } from "../../settings";
+// import { HOST_URL } from "../settings";
+import { HOST_URL, DEBUG } from "../../settings";
 
 export const authStart = () => {
   return {
@@ -9,6 +10,7 @@ export const authStart = () => {
 };
 
 export const authSuccess = (username, token) => {
+  DEBUG && console.log("user logged in...");
   return {
     type: actionTypes.AUTH_SUCCESS,
     token: token,
@@ -17,6 +19,7 @@ export const authSuccess = (username, token) => {
 };
 
 export const authFail = error => {
+  DEBUG && console.log("Authenticatin failded");
   return {
     type: actionTypes.AUTH_FAIL,
     error: error

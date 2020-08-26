@@ -5,7 +5,7 @@ const Contact = props => (
   <NavLink to={`${props.chatURL}`} style={{ color: "#fff" }}>
     <li className="contact">
       <div className="wrap">
-        <span className={`contact-status ${props.status}`} />
+        <span className="contact-status active" />
         <img src={props.picURL} alt={`profile of ${props.name}`} />
         <div className="meta">
           <p className="name">{props.name}</p>

@@ -27,7 +27,7 @@ class Chat extends React.Component {
       if (WebSocketInstance.state() === 1) {
         console.log("Connection is made");
         callback();
-        return;
+        // return;
       } else {
         console.log("wait for connection...");
         component.waitForSocketConnection(callback);
@@ -82,7 +82,8 @@ class Chat extends React.Component {
         className={message.author === currentUser ? "sent" : "replies"}
       >
         <img
-          src="http://emilcarlsson.se/assets/mikeross.png"
+          // src="http://emilcarlsson.se/assets/mikeross.png|
+          src={`https://loremflickr.com/320/320/dog,cat?random=${message.author}`}
           alt="profile-pic"
         />
         <p>

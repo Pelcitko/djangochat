@@ -5,6 +5,7 @@ import * as actions from "../store/actions/auth";
 import * as navActions from "../store/actions/nav";
 import * as messageActions from "../store/actions/message";
 import Contact from "../components/Contact";
+import { HOST_URL, DEBUG } from "../settings";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
@@ -26,7 +27,7 @@ class Sidepanel extends React.Component {
         );
         // return;
       } else {
-        console.log("waiting for authentication details...");
+        DEBUG && console.log("waiting for authentication details...");
         component.waitForAuthDetails();
       }
     }, 100);
@@ -64,10 +65,11 @@ class Sidepanel extends React.Component {
         <Contact
           key={c.id}
           name={`${c.participants.splice(0,1)}`}
-          picURL="https://loremflickr.com/320/320/dog"
+          picURL={`https://loremflickr.com/320/320/dog,cat?random=${c.id}`}
+          // status={c.status}
           status="busy"
           chatURL={`/${c.id}`}
-          messages={`/${c.messages[0]}`}
+          messages={`${c.messages[0]}`}
         />
       );
     });
@@ -77,7 +79,8 @@ class Sidepanel extends React.Component {
           <div className="wrap">
             <img
               id="profile-img"
-              src="http://emilcarlsson.se/assets/mikeross.png"
+              // src="http://emilcarlsson.se/assets/mikeross.png"
+              src={`https://loremflickr.com/320/320/dog,cat?random=${this.props.username}`}
               className="online"
               alt=""
             />
@@ -185,6 +188,7 @@ const mapStateToProps = state => {
     loading: state.auth.loading,
     token: state.auth.token,
     username: state.auth.username,
+    // userId: state.auth.id,
     chats: state.message.chats
   };
 };
@@ -192,13 +196,15 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     login: (userName, password) =>
-      dispatch(actions.authLogin(userName, password)),
-    logout: () => dispatch(actions.logout()),
+        dispatch(actions.authLogin(userName, password)),
+    logout: () =>
+        dispatch(actions.logout()),
     signup: (username, email, password1, password2) =>
-      dispatch(actions.authSignup(username, email, password1, password2)),
-    addChat: () => dispatch(navActions.openAddChatPopup()),
+        dispatch(actions.authSignup(username, email, password1, password2)),
+    addChat: () =>
+        dispatch(navActions.openAddChatPopup()),
     getUserChats: (username, token) =>
-      dispatch(messageActions.getUserChats(username, token))
+        dispatch(messageActions.getUserChats(username, token))
   };
 };
 
