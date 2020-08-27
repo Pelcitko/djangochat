@@ -1,7 +1,7 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# SECRET_KEY = 'Fifty random characters.'
+SECRET_KEY = 'Fifty random characters.'
 DEBUG = True
 ALLOWED_HOSTS = []
 INTERNAL_IPS = [
