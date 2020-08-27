@@ -8,6 +8,7 @@ INTERNAL_IPS = [
     '127.0.0.1',
     '147.230.155.90',   # na síti
     '147.230.229.130',  # na wifi
+    '*',
 ]
 
 INSTALLED_APPS = [
@@ -36,7 +37,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,9 +144,10 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 CSRF_COOKIE_NAME = "csrftoken"
 
 # HOST_URL = 'https://pwa-3609.rostiapp.cz'
-HOST_URL = 'http://djangochat-4280.rostiapp.cz'
-if DEBUG:
-    HOST_URL = 'http://147.230.155.90:8000'
+HOST_URL = 'https://cryptic-plains-09325.herokuapp.com'
+# HOST_URL = 'http://djangochat-4280.rostiapp.cz'
+# if DEBUG:
+#     HOST_URL = 'http://147.230.155.90:8000'
     # HOST_URL = 'http://localhost:3000'
     # HOST_URL = 'http://localhost:8000'
 
@@ -154,4 +157,5 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:3000',
     'localhost:8000',
     'localhost:8080',
+    'cryptic-plains-09325.herokuapp.com',
     )
