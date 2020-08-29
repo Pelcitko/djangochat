@@ -15,6 +15,9 @@ User = get_user_model()
 
 
 class ChatListView(ListAPIView):
+    """
+    Return a list of all the existing chats ids with parcipicants and messages ids.
+    """
     serializer_class = ChatSerializer
     permission_classes = (permissions.AllowAny, )
 
@@ -28,6 +31,9 @@ class ChatListView(ListAPIView):
 
 
 class ChatDetailView(RetrieveAPIView):
+    """
+    Return chat.
+    """
     queryset = Chat.objects.all()
     serializer_class = ChatSerializer
     permission_classes = (permissions.AllowAny, )
