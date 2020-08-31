@@ -36,7 +36,7 @@ class Chat(models.Model):
     messages = models.ManyToManyField(Message, blank=True, help_text="List of message ids",)
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)
 
     class Meta:
         verbose_name = 'Chat'

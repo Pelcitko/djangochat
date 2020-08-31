@@ -10,6 +10,7 @@ INTERNAL_IPS = [
     '147.230.229.130',  # na wifi
     '*',
 ]
+APPEND_SLASH = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
