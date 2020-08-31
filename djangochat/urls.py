@@ -14,23 +14,22 @@ urlpatterns = [
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('', TemplateView.as_view(template_name='index.html')),
     # re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
-    # path('docs/', include_docs_urls(title='API doc', public=False)),
 ]
 
 
-# dokumentace
-schema_view = get_schema_view(
-    title="Chat API",
-    description="Chat API description",
-    public=True,
-)
+# schéma
+title="Chat API"
+description="Chat API description"
+public=True
+schema = get_schema_view(title, description, public)
 
+# api dokumentace
 title='API Documentation'
-description="""
-This application was created for the WEAP course. Originally according to a tutorial on [YouTube](https://www.youtube.com/playlist?list=PLLRM7ROnmA9EnQmnfTgUzCfzbbnc-oEbZ).
-"""
+description="This application was created for the WEAP course. Originally according to a tutorial on [YouTube](https://www.youtube.com/playlist?list=PLLRM7ROnmA9EnQmnfTgUzCfzbbnc-oEbZ)."""
+
+
 urlpatterns += [
-    path('schema/', schema_view),
+    path('schema/', schema),
     path('docs/', include_docs_urls(title, description)),
 ]
 

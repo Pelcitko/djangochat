@@ -149,10 +149,10 @@ class Sidepanel extends React.Component {
                       </div>
                     )}
 
-                    <button type="submit">Registrovat</button>
+                    <button type="submit">authenticate</button>
                   </form>
 
-                  <button onClick={this.changeForm}>Radši přihlásit</button>
+                  <button onClick={this.changeForm}>switch</button>
                 </div>
               )}
             </div>
