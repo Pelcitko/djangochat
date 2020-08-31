@@ -64,7 +64,7 @@ celerybeat.pid
 .pyre/
 
 # security
-**/__init__.py
+#**/__init__.py
 
 # big file and trash, or stash
 *.sql
