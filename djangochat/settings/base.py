@@ -146,7 +146,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 CSRF_COOKIE_NAME = "csrftoken"
 
 # HOST_URL = 'https://pwa-3609.rostiapp.cz'
-HOST_URL = 'https://cryptic-plains-09325.herokuapp.com'
+HOST_URL = 'cryptic-plains-09325.herokuapp.com'
 # HOST_URL = 'http://djangochat-4280.rostiapp.cz'
 # if DEBUG:
 #     HOST_URL = 'http://147.230.155.90:8000'
