@@ -26,7 +26,7 @@ const setChats = (state, action) => {
 };
 
 const reducer = (state = initialState, action) => {
-  if (DEBUG) {console.log('reducer:', state, action)}
+  if (DEBUG) {console.log('reducer:', state, action);}
   switch (action.type) {
     case actionTypes.ADD_MESSAGE:
       return addMessage(state, action);

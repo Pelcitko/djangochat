@@ -1,0 +1,30 @@
+info:
+  description: ''
+  title: ''
+  version: ''
+openapi: 3.0.0
+paths:
+  /chat/:
+    get:
+      description: Return a list of all existing chats ids with participants and message
+        ids.
+      operationId: chat_list
+      tags:
+      - chat
+  /chat/{id}/:
+    get:
+      description: Return **chat** by id.
+      operationId: chat_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this Chat.
+          title: !!python/tuple
+          - ID
+          type: integer
+      tags:
+      - chat
+servers:
+- url: ''
