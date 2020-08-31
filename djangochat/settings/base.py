@@ -9,6 +9,7 @@ INTERNAL_IPS = [
     '147.230.155.90',   # na síti
     '147.230.229.130',  # na wifi
 ]
+APPEND_SLASH = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,7 +37,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    # 'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

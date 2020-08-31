@@ -79,12 +79,12 @@ class Sidepanel extends React.Component {
           <div className="wrap">
             <img
               id="profile-img"
-              // src="http://emilcarlsson.se/assets/mikeross.png"
               src={`https://loremflickr.com/320/320/dog,cat?random=${this.props.username}`}
               className="online"
-              alt=""
+              alt="User avatar"
+              loading="lazy"
             />
-            <p>Účet</p>
+            <p>Account</p>
             <i
               className="fa fa-chevron-down expand-button"
               aria-hidden="true"
@@ -170,11 +170,11 @@ class Sidepanel extends React.Component {
         <div id="bottom-bar">
           <button id="addChat" onClick={() => this.openAddChatPopup()}>
             <i className="fa fa-user-plus fa-fw" aria-hidden="true" />
-            <span>Nové spojení</span>
+            <span>New connection</span>
           </button>
           <button id="settings">
             <i className="fa fa-cog fa-fw" aria-hidden="true" />
-            <span>Nastavení</span>
+            <span>Settings</span>
           </button>
         </div>
       </div>

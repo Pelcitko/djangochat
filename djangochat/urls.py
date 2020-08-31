@@ -18,14 +18,17 @@ urlpatterns = [
 
 
 # schéma
-title="Chat API"
-description="Chat API description"
-public=True
-schema = get_schema_view(title, description, public)
+schema = get_schema_view(
+    title="Chat API",
+    description="""Chat API description""",
+    public=True
+)
 
 # api dokumentace
 title='API Documentation'
-description="This application was created for the WEAP course. Originally according to a tutorial on [YouTube](https://www.youtube.com/playlist?list=PLLRM7ROnmA9EnQmnfTgUzCfzbbnc-oEbZ)."""
+description="""
+This application was created for the WEAP course. Originally according to a tutorial on [YouTube](https://www.youtube.com/playlist?list=PLLRM7ROnmA9EnQmnfTgUzCfzbbnc-oEbZ).
+"""
 
 
 urlpatterns += [

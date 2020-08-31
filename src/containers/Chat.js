@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import WebSocketInstance from "../websocket";
+import * as moment from 'moment'
 import Hoc from "../hoc/hoc";
 
 class Chat extends React.Component {
@@ -52,8 +53,9 @@ class Chat extends React.Component {
 
   renderTimestamp = timestamp => {
     let prefix = "";
+    let mess_time = new Date(timestamp)
     const timeDiff = Math.round(
-      (new Date().getTime() - new Date(timestamp).getTime()) / 60000
+      (new Date().getTime() - mess_time.getTime()) / 60000
     );
     if (timeDiff < 1) {
       // less than one minute ago
@@ -68,7 +70,7 @@ class Chat extends React.Component {
       // less than 7 days ago
       prefix = `${Math.round(timeDiff / (60 * 24))} days ago`;
     } else {
-      prefix = `${new Date(timestamp)}`;
+      prefix = `${moment(mess_time).format('LLLL')}`;
     }
     return prefix;
   };
