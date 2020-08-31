@@ -694,3 +694,7 @@ small {
     padding: 7px;
     width: calc(100% - 43px);
 }
+
+#userName{
+  min-width: 120px;
+}
