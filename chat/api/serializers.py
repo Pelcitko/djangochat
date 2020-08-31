@@ -10,6 +10,10 @@ class ContactSerializer(serializers.StringRelatedField):
 
 
 class ChatSerializer(serializers.ModelSerializer):
+    """
+    ## Chat (object)
+    + participants ID (int)
+    """
     participants = ContactSerializer(many=True)
 
     class Meta:
@@ -18,6 +22,11 @@ class ChatSerializer(serializers.ModelSerializer):
         read_only = ('id')
 
     def create(self, validated_data):
+        """
+        :param validated_data: `allauth.socialaccount.SocialToken` instance
+        :returns: A populated instance of the
+            `models.Chat` instance
+        """
         print(validated_data)
         participants = validated_data.pop('participants')
         chat = Chat()

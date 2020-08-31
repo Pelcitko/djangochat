@@ -1,5 +1,6 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../utility";
+import {DEBUG} from "../../settings";
 
 const initialState = {
   token: null,
@@ -39,6 +40,7 @@ const authLogout = (state, action) => {
 };
 
 const reducer = (state = initialState, action) => {
+  if (DEBUG) {console.log('reducer:', state, action);}
   switch (action.type) {
     case actionTypes.AUTH_START:
       return authStart(state, action);

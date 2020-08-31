@@ -1,16 +1,16 @@
-from django.urls import path, re_path
-
+from django.urls import path
 from .views import (
     ChatListView,
     ChatDetailView,
     ChatCreateView,
     ChatUpdateView,
-    ChatDeleteView
+    ChatDeleteView,
 )
 
 app_name = 'chat'
 
 urlpatterns = [
+    # path('', GenericAPIView.as_view(queryset=Chat.objects.all(), serializer_class=ChatSerializer), name='chat-list'),
     path('', ChatListView.as_view()),
     path('create/', ChatCreateView.as_view()),
     path('<pk>/', ChatDetailView.as_view()),
