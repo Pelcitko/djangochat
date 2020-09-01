@@ -28,6 +28,8 @@ schema = get_schema_view(
 title='API Documentation'
 description="""
 This application was created for the WEAP course. Originally according to a tutorial on [YouTube](https://www.youtube.com/playlist?list=PLLRM7ROnmA9EnQmnfTgUzCfzbbnc-oEbZ).
+
+After registering a new account, it is necessary to add contacts to friends in the administration, similarly to Facebook. Only then can these friends be found and chat with them. This functionality is not implemented in React application.
 """
 
 
